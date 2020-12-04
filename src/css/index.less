@@ -1,0 +1,185 @@
+body,h2,dl,dd{
+    margin: 0;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body{
+    background-size: cover;
+}
+
+#wrap{
+    width: 100vw;
+    height: 100vh;
+    padding-top: 15vw;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, .3);
+
+    .songImg{
+        width: 70vw;
+        height: 70vw;
+        border-radius: 50%;
+        margin: 0 auto;
+        background-color: #000000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img{
+            width: 80%;
+            height: 80%;
+            border-radius: 50%;
+      
+        }
+    }
+    
+    .songInfo{
+        display: flex;
+       align-items: center;
+        flex-direction: column;
+        height: 20vh;
+        margin-top: 6vw;
+        color: #fff;
+        text-align: center;
+        h2{
+            font-weight: normal;
+            font-size: 24px;
+            margin-bottom: 3vw;
+        }
+        div{
+            font-size: 14px;
+        }
+        *{
+            overflow: hidden;
+            width: 60vw;
+            text-overflow: ellipsis;
+            word-wrap:none;
+            white-space: nowrap;
+        }
+    }
+    // 进度条
+    .progress{
+        height: 6vw;
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        color: #fff;
+        line-height: 8vw;
+        text-align: center;
+        .curTime{
+            padding: 0 4vw;
+        }
+
+        .drag{
+            height: 8vw;
+            flex: 1 1 auto;
+            position: relative;
+            .circle{
+                width: 2vw;
+                height: 2vw;
+                border: 2vw solid rgba(0,0,0, .0);
+                background: #fff;
+                background-clip: padding-box;
+
+                border-radius: 50%;
+                position: absolute;
+                left: -3vw;
+                top: 50%;
+                margin-top: -3vw;
+                z-index: 3;
+            }
+            .backBg{
+                position: absolute;
+                background: rgba(0, 0, 0, .2);
+                width: 100%;
+                height: 0.6vw;
+                top: 50%;
+                left: 0;
+                margin-top: -0.3vw;
+                .frontBg{
+                    width: 0;
+                    height: 100%;
+                    background: #fff;
+                }
+            }
+
+           
+            
+        }
+        .totalTime{
+            padding: 0 4vw;
+        }
+    }
+
+    // 底部菜单
+    .control{
+        width: 100vw;
+        height: 16vw;
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        background: rgba(0, 0, 0, .5);
+
+        li{
+            width: 20%;
+        }
+        li:nth-child(1){
+            background: url(../images/nolove.png)  no-repeat center/30%;
+            &.liking{
+                background: url(../images/love.png)  no-repeat center/30%;
+            }
+        }
+        li:nth-child(2){
+            background: url(../images/last.png) no-repeat center/30%;
+        }
+        li:nth-child(3){
+            background: url(../images/noplay.png) no-repeat center/30%;
+           &.playing{
+            background: url(../images/play.png) no-repeat center/30%;
+           }
+        }
+        li:nth-child(4){
+            background: url(../images/next.png) no-repeat center/30%;
+        }
+        li:nth-child(5){
+            background: url(../images/playList.png) no-repeat center/30%;
+        }   
+    }
+
+    // 弹出列表
+    .list{
+        transition: bottom .7s ;
+        width: 100vw;
+        position: fixed;
+        background: #000000;
+        z-index: 4;
+        dd, dd, dt, .close{
+            height: 12vw;
+            line-height: 12vw;
+            font-size: 16px;
+            color: #fff;
+            border-bottom: 1px solid rgba(255, 255, 255, .1);
+        }
+        dl {
+            height: 300px;
+            overflow: scroll;
+        }
+        dt, .close{
+            text-align: center;
+        }
+        dd{
+            padding-left: 3vw;
+            &.active{
+                color : #56b287
+            }
+        }
+        .close{
+            border-bottom: none;
+            
+        }
+    }
+}
